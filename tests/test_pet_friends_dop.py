@@ -7,7 +7,7 @@ pf = PetFriends()
 
 
 # 1 позитивный
-def test_add_new_pet_simple(name='Сорока', animal_type='птиц', age=2):
+def test_add_new_pet_simple(name='Нюша', animal_type='британка', age=7):
     """Проверяем, что можно добавить питомца в упрощенном формате (без фото) с корректными данными"""
 
     # Запрашиваем ключ api и сохраняем в переменную auth_key
@@ -56,7 +56,7 @@ def test_add_photo_to_pet_with_valid_data(pet_photo='images\Koko.jpg'):
     # Проверяем: если список своих питомцев пустой, то добавляем нового
     # и опять запрашиваем список своих питомцев
     if len(my_pets['pets']) == 0:
-        pf.add_new_pet_simple(auth_key, "Несушка", "несушка", 4)
+        pf.add_new_pet_simple(auth_key, "Коко", "несушка", 4)
         _, my_pets = pf.get_list_of_pets(auth_key, "my_pets")
 
     # Берём id первого питомца из списка и отправляем запрос на добавление фотографии
@@ -248,5 +248,3 @@ def test_delete_self_pet():
     # Ещё раз запрашиваем список своих питомцев
     if len(my_pets['pets']) == 0:
         print("\nПитомцы удалены. Список пустой")
-
-
